@@ -1,25 +1,29 @@
 # imports
+import os
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash
 from contextlib import closing
 
-# TODO - refactor into configuration file
-# configuration
-DATABASE = '/tmp/flaskr.db'
-DEBUG = True
-SECRET_KEY = 'development key'
-USERNAME = 'admin'
-PASSWORD = 'default'
+app = Flask(__name__)  # create our little application :)
+app.config.from_object(__name__)  # load config from this file
 
-# create our little application :)
-app = Flask(__name__)
-app.config.from_object(__name__)
+# Load default config and override config from an env var
+app.config.from_object(obj=dict(
+    DATABASE=os.path.join(app.root_path, 'flaskr.db'),
+    SECRET_KEY='development key',
+    USERNAME='admin',
+    PASSWORD='default'
+))
+app.config.from_envvar(variable_name='FLASKR_SETTINGS', silent=True)
 
 
 # used to open a connection on request
 def connect_db():
-    return sqlite3.connect(database=app.config['DATABASE'])
+    """Connects to the specific database"""
+    rv = sqlite3.connect(database=app.config['DATABASE'])
+    rv.row_factory = sqlite3.Row  # represent rows as dictionaries not tuples
+    return rv
 
 
 # initializes the database

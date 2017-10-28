@@ -15,7 +15,7 @@ app.config.from_object(obj=dict(
     USERNAME='admin',
     PASSWORD='default'
 ))
-app.config.from_envvar(variable_name='FLASKR_SETTINGS', silent=True)
+app.config.from_envvar(variable_name='FLASKR_SETTINGS', silent=False)
 
 
 # used to open a connection on request
@@ -26,26 +26,37 @@ def connect_db():
     return rv
 
 
-# initializes the database
 def init_db():
-    with closing(connect_db()) as db:
-        with app.open_resource(resource='schema.sql', mode='r') as f:
-            db.cursor().executescript(f.read())
-        db.commit()
+    """Creates the database per 'schema.sql' script."""
+    db = get_db()
+    with app.open_resource(resource='schema.sql', mode='r') as f:
+        db.cursor().executescript(f.read())
+    db.commit()
 
 
-# connect to db before request
-@app.before_request
-def before_request():
-    g.db = connect_db()
+# register a new command with the flask script
+@app.cli.command('initdb')
+def initdb_command():
+    """Initializes the database."""
+    init_db()
+    print('Initialized the database.')
 
 
-# close db post request
-@app.teardown_request
-def teardown_request(exception):
-    db = getattr(o=g, name='db', default=None)
-    if db is not None:
-        db.close()
+def get_db():
+    """Opens a new database connection if there is none yet for the current
+    application context.
+    """
+    if not hasattr(g, 'sqlite_db'):
+        g.sqlite_db = connect_db()
+    return g.sqlite_db
+
+
+# close db when application context tears down
+@app.teardown_appcontext
+def close_db(error):
+    """Closes the database again at the end of the request."""
+    if hasattr(g, 'sqlite_db'):
+        g.sqlite_db.close()
 
 
 # fires up the server if we want to run as standalone app

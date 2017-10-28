@@ -4,6 +4,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash
 from contextlib import closing
 
+# TODO - refactor into configuration file
 # configuration
 DATABASE = '/tmp/flaskr.db'
 DEBUG = True
@@ -27,6 +28,20 @@ def init_db():
         with app.open_resource(resource='schema.sql', mode='r') as f:
             db.cursor().executescript(f.read())
         db.commit()
+
+
+# connect to db before request
+@app.before_request
+def before_request():
+    g.db = connect_db()
+
+
+# close db post request
+@app.teardown_request
+def teardown_request(exception):
+    db = getattr(o=g, name='db', default=None)
+    if db is not None:
+        db.close()
 
 
 # fires up the server if we want to run as standalone app

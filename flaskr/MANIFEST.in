@@ -1,0 +1,7 @@
+; Specifies any special files that should be included in the package.
+; In this case, static and template directories need to be included, as well
+; as the schema.
+
+graft flaskr/templates
+graft flaskr/static
+include flaskr/schema.sql

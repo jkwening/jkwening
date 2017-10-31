@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="John Kwening">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- additional stylesheets -->
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/bootstrap-social.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container-fluid">
+      <sidebar>
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a href="/" id="JohnK">John Kwening</a></li>
+            <li role="navigation"><a href="/about">About</a></li>
+            <li role="navigation"><a href="/projects">Projects</a></li>
+            <li role="navigation"><a href="/resume">Resume</a></li>
+            <li role="navigation"><a href="/activity_tracker">Activity Tracker</a></li>
+          </ul>
+          <footer class="row-footer">
+            <div class="container">
+              <div class="row">
+                <div class="nav navbar-nav" style="padding: 1px 0px 0px 15px;">
+                  <a class="btn btn-social-icon btn-linkedin btn-lg" href="https://www.linkedin.com/in/john-kwening-947a4517/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a class="btn btn-social-icon btn-github btn-lg" href="https://github.com/jkwening"><i class="fa fa-github" aria-hidden="true"></i></a>
+                  <a class="btn btn-social-icon btn-lg" href="mailto:kwening.john@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                </div> 
+              </div>
+            </div>
+          </footer>
+        </div>
+      </sidebar>
+      <aside>
+        <div class="col-md-9">
+          <div class="row row-content">
+            {% block content %}{% endblock %}
+          </div>
+        </div>
+      </aside>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -12,30 +12,26 @@ app = Flask(__name__)
 
 @app.route('/')
 def show_about():
-    page_title = 'John Kwening'
-    return render_template(template_name_or_list='about.html',
-                           page_title=page_title)
+    return render_template(template_name_or_list='about.html')
+
+
+# bind other urls to show_about view function
+app.add_url_rule(rule='/about', endpoint='about', view_func=show_about)
 
 
 @app.route('/projects')
 def show_projects():
-    page_title = 'John\'s Projects'
-    return render_template(template_name_or_list='projects.html',
-                           page_title=page_title)
+    return render_template(template_name_or_list='projects.html')
 
 
 @app.route('/resume')
 def show_resume():
-    page_title = 'John\'s Resume'
-    return render_template(template_name_or_list='projects.html',
-                           page_title=page_title)
+    return render_template(template_name_or_list='resume.html')
 
 
 @app.route('/activity_tracker')
 def show_activities():
-    page_title = 'John\'s Activities'
-    return render_template(template_name_or_list='activity_tracker.html',
-                           page_title=page_title)
+    return render_template(template_name_or_list='activity_tracker.html')
 
 
 if __name__ == '__main__':

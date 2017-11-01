@@ -3,36 +3,36 @@ import os
 from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 #############################
 # View Functions
 #############################
 
-@app.route('/')
+@application.route('/')
 def show_about():
     return render_template(template_name_or_list='about.html')
 
 
 # bind other urls to show_about view function
-app.add_url_rule(rule='/about', endpoint='about', view_func=show_about)
+application.add_url_rule(rule='/about', endpoint='about', view_func=show_about)
 
 
-@app.route('/projects')
+@application.route('/projects')
 def show_projects():
     return render_template(template_name_or_list='projects.html')
 
 
-@app.route('/resume')
+@application.route('/resume')
 def show_resume():
     return render_template(template_name_or_list='resume.html')
 
 
-@app.route('/activity_tracker')
+@application.route('/activity_tracker')
 def show_activities():
     return render_template(template_name_or_list='activity_tracker.html')
 
 
 if __name__ == '__main__':
-    app.run()
+    application.run()

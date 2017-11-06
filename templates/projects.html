@@ -1,6 +1,59 @@
 {% extends "layout.html" %}
 {% block title %}John's Projects{% endblock %}
 {% block content %}
-    <h1>Projects - WIP</h1>
-    <h3>Do you like my projects? Please leave some feedback!</h3>
+<div class="container-fluid">
+  <div class="row">
+  <h1>Projects</h1>
+</div>
+<div class="row row-content row-project">
+  <div class="col-xs-12 col-sm-3 col-sm-push-9">
+    <p style="padding: 20px"></p>
+    <h3 align=center>This Website</h3>
+  </div>
+  <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+    <div class="media">
+        <div class="media-left media-middle">
+            <a href="/about">
+                <img class="media-object img-thumbnail" src="../static/img/website-navbar-only.jpeg" alt="Uthappiza" width="171px" height="180px">
+            </a>
+        </div>
+        <div class="media-body">
+          <p>Built using:</p>
+          <ul>
+            <li><a href="http://flask.pocoo.org/docs/0.10/">Flask:</a> a Python web development framework.</li>
+            <li><a href="http://jinja.pocoo.org/">Jinja:</a> a text-based templating engine. This is the default template engine for Flask. I find it useful because its easy to debug and allows calling python functions within the markup itself.</li>
+            <li><a href="https://getbootstrap.com">Bootstrap:</a> a front-end web development framework that allows building responsive, mobile-first UI.</li>
+            <li>HTML and CSS - for additional customization.</li>
+          </ul>
+          <p>Feel free to check it out <a href="https://github.com/jkwening/jkwening.github.com">on Github</a> if you like.</p>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row row-content row-project">
+  <div class="col-xs-12 col-sm-3">
+    <p style="padding: 20px"></p>
+    <h3 align=center>Housing Insights</h3>
+  </div>
+  <div class="col-xs-12 col-sm-9">
+    <div class="media">
+        <div class="media-body">
+          <p>I am the backend lead of the <a href="http://housinginsights.org/">Housing Insights project</a>. This open source civic tech project collects many of the open data sources that are relevant to affordable housing policy in DC and makes them available to policy makers and advocates in the form of an interactive web tool.
+          </p>
+          <p>The coding on the website is done by a group of volunteers at Code for DC. In addition to working with the project manager managing tasks for these volunteers and reviewing pull requests, I have been working on automating processing, cleaning, and validation of ingested data and refactoring the code base to improve efficiency and ensure maintainability.
+          </p>
+          <ul>
+            <li>View the code and activity <a href="https://github.com/codefordc/housing-insights/">on Github</a></li>
+            <li>Checkout the <a href="http://housinginsights.org/tool/">live version of the tool</a>.</li>
+          </ul>
+        </div>
+      <div class="media-right media-middle">
+            <a href="http://housinginsights.org/">
+                <img class="media-object img-thumbnail" src="../static/img/housing-insights-tool-site.jpeg" alt="Uthappiza" width="171px" height="180px">
+            </a>    
+        </div>
+    </div>
+  </div>
+</div>
+</div>
 {% endblock %}

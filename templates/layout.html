@@ -13,6 +13,7 @@
     <!-- additional stylesheets -->
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ url_for('static', filename='css/bootstrap-social.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|EB+Garamond|Lobster|Zilla+Slab+Highlight" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,34 +25,30 @@
   </head>
   <body>
     <div class="container-fluid">
-      <sidebar>
-        <div class="col-md-3">
-          <ul class="nav nav-pills nav-stacked">
-            <li role="presentation"><a href="/" id="JohnK">John Kwening</a></li>
-            <li role="navigation"><a href="/about">About</a></li>
-            <li role="navigation"><a href="/projects">Projects</a></li>
-            <li role="navigation"><a href="/resume">Resume</a></li>
-            <li role="navigation"><a href="/activity_tracker">Activity Tracker</a></li>
-          </ul>
-          <footer class="row-footer">
-            <div class="container">
-              <div class="row">
-                <div class="nav navbar-nav" style="padding: 1px 0px 0px 15px;">
-                  <a class="btn btn-social-icon btn-linkedin btn-lg" href="https://www.linkedin.com/in/john-kwening-947a4517/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                  <a class="btn btn-social-icon btn-github btn-lg" href="https://github.com/jkwening"><i class="fa fa-github" aria-hidden="true"></i></a>
-                  <a class="btn btn-social-icon btn-lg" href="mailto:kwening.john@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
-                </div> 
-              </div>
+      <sidebar class="col-md-3">
+        <div data-spy="affix" data-offset-top="50">
+          <div class="container">
+            <div class="row">
+              <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="/" id="JohnK" class="sidebar">John Kwening</a></li>
+                <li role="navigation"><a href="/about" class="sidebar">About</a></li>
+                <li role="navigation"><a href="/projects" class="sidebar">Projects</a></li>
+                <li role="navigation"><a href="/resume" class="sidebar">Resume</a></li>
+                <li role="navigation"><a href="/blog" class="sidebar">Blog</a></li>
+              </ul>
             </div>
-          </footer>
-        </div>
-      </sidebar>
-      <aside>
-        <div class="col-md-9">
-          <div class="row row-content">
-            {% block content %}{% endblock %}
+              <div class="row row-nav-icon">
+                  <div class="nav navbar-nav" style="padding: 1px 0px 0px 15px;">
+                    <a class="btn btn-social-icon btn-linkedin btn-lg" href="https://www.linkedin.com/in/john-kwening-947a4517/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a class="btn btn-social-icon btn-github btn-lg" href="https://github.com/jkwening"><i class="fa fa-github" aria-hidden="true"></i></a>
+                    <a class="btn btn-social-icon btn-lg" href="mailto:kwening.john@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                  </div> 
+              </div>
           </div>
         </div>
+      </sidebar>
+      <aside class="col-md-8">
+        {% block content %}{% endblock %}
       </aside>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

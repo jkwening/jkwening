@@ -29,9 +29,9 @@ def show_resume():
     return render_template(template_name_or_list='resume.html')
 
 
-@application.route('/activity_tracker')
-def show_activities():
-    return render_template(template_name_or_list='activity_tracker.html')
+@application.route('/blog')
+def show_blog():
+    return render_template(template_name_or_list='blog.html')
 
 
 if __name__ == '__main__':

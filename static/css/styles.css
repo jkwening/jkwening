@@ -1,33 +1,68 @@
 .row-header{
-    margin: 0px auto;
-    padding: 0px auto;
+  margin: 0px auto;
+  padding: 0px auto;
 }
 
 .row-content {
-    margin: 0px auto;
-    /*padding: 50px 0px 50px 0px;*/
-    /*border-bottom: 1px ridge;*/
-    min-height: 400px;
+  margin: 0px auto;
+  min-height: 250px;
 }
 
-.row-footer{
-    /*background-color: #AfAfAf;*/
-    margin: 0px auto;
-    padding: 20px 0px 20px 0px;
+.row-project {
+  
+  padding: 50px 0px 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 300px;
+}
+
+.row-project li {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+}
+
+.row-nav-icon{
+  /*background-color: #AfAfAf;*/
+  margin: 0px auto;
+  padding: 20px 0px 20px 0px;
 }
 
 .jumbotron{
-    padding: 70px 30px 70px 30px;
-    margin: 0px auto;
-    background: #7986CB;
-    color: floralwhite;
+  padding: 70px 30px 70px 30px;
+  margin: 0px auto;
+  background: #7986CB;
+  color: floralwhite;
 }
 
 body{
-    padding: 50px 0px 0px 0px;
-    z-index: 0;
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
 }
 
 .affix {
-    top: 100px;
+  top: 20px;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+  margin-top: 0px;
+}
+
+h3 {
+  font-family: 'Zilla Slab Highlight', cursive;
+}
+
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+}
+
+.sidebar {
+  font-family: 'Arima Madurai', cursive;
+  font-size: 18px;
+  width: 200px; /*stop from bleeding out when hovering*/
+}
+
+#JohnK {
+  font-size: 27px;
+  padding-top: 0px;
 }

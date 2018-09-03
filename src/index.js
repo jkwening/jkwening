@@ -1,9 +1,22 @@
-function component() {
-  let element = document.createElement('div');
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
-  element.innerHTML = ['Hello', 'webpack'].join(' ');
-  
-  return element;
+const styles = {
+  app: {
+    paddingTop: 40,
+    textAlign: 'center',
+  },
 }
 
-document.body.appendChild(component());
+class App extends Component {
+  render() {
+    return (
+      <div style={styles.app}>
+        Welcome to React!
+      </div>
+    )
+  }
+}
+
+const root = document.querySelector('#app');
+ReactDOM.render(<App />, root);

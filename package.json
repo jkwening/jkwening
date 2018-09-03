@@ -1,0 +1,26 @@
+{
+  "name": "jkwening.com",
+  "version": "1.0.0",
+  "description": "John Kwening's personal website",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkwening/jkwening.github.com.git"
+  },
+  "author": "John Kwening",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jkwening/jkwening.github.com/issues"
+  },
+  "homepage": "https://github.com/jkwening/jkwening.github.com#readme",
+  "devDependencies": {
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  }
+}

@@ -1,0 +1,19 @@
+.idea/
+secrets.json
+flaskr/
+eb-flask/
+.DS_Store
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Node
+node_modules/
+
+# Visual Studio files
+.vscode/
+
+# Webpack emitted bundle file
+dist/main.js
